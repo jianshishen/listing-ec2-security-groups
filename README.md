@@ -8,6 +8,8 @@
 
 # Sample Output
 
+Below is a snippet of the response. These security groups are extracted from my own AWS account.
+
 ```
 {
   "data": [

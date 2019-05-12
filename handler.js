@@ -1,3 +1,8 @@
+/*
+Author: Jianshi Shen
+The following handler will return a response 
+including all security groups in an AWS account in the form of JSON:API 1.0.
+*/
 const utils = require("./libs/utils");
 
 module.exports.list = async (event, context, callback) => {

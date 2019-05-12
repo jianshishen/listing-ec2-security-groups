@@ -8,7 +8,7 @@
 
 # Deployment
 
-1. Setup AWS credential using this [link](https://serverless.com/framework/docs/providers/aws/guide/credentials#using-aws-access-keys)
+1. Setup AWS credential using methods in this [doc](https://serverless.com/framework/docs/providers/aws/guide/credentials#using-aws-access-keys)
 2. Run `sls deploy`. The default stage name is `dev`. Use `--stage` to specify a custom stage name.
 3. Check the output using the link provided in console.
 

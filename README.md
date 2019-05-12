@@ -1,10 +1,16 @@
-# Steps
+# Goals
 
 1. Create a Node.js ES6 module to list all EC2 security groups in an AWS Account.
 2. Use this module in an AWS Lambda function.
 3. Make the Lambda function available via an AWS API Gateway endpoint.
 4. Make response [JSON:API 1.0](https://jsonapi.org/format/1.0/) compatible.
 5. Wrap the Lambda, API Gateway endpoint, and utility module in a Serverless application. [More info](https://serverless.com/framework/docs/providers/aws/events/apigateway#configuring-endpoint-types)
+
+# Deployment
+
+1. Setup AWS credential using this [link](https://serverless.com/framework/docs/providers/aws/guide/credentials#using-aws-access-keys)
+2. Run `sls deploy`. The default stage name is `dev`. Use `--stage` to specify a custom stage name.
+3. Check the output using the link provided in console.
 
 # Sample Output
 

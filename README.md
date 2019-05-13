@@ -4,7 +4,7 @@
 
 1. Use [Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html) and `Promise.all` to speed up duration of execution. Now it only takes up to 3 seconds to get all results.
 2. Use [Promise object](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/using-promises.html) provided by AWS SDK instead of using the native one.
-3. Replace `return()` with `callback()`
+3. Replace `callback()` with `return()`
 
 # Goals
 

@@ -7,6 +7,7 @@ provider:
   region: us-east-1
   endpointType: REGIONAL
   timeout: 30
+  reservedConcurrency: 50
   iamRoleStatements:
     - Effect: "Allow"
       Action:

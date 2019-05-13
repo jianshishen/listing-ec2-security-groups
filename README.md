@@ -1,10 +1,18 @@
+#Updates
+
+13-05-2019:
+
+1. Use [Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html) and `Promise.all` to speed up duration of execution. Now it only takes up to 3 seconds to get all results.
+2. Use [Promise object](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/using-promises.html) provided by AWS SDK instead of using the native one.
+3. Replace `return()` with `callback()`
+
 # Goals
 
 1. Create a Node.js ES6 module to list all EC2 security groups in an AWS Account.
 2. Use this module in an AWS Lambda function.
 3. Make the Lambda function available via an AWS API Gateway endpoint.
 4. Make response [JSON:API 1.0](https://jsonapi.org/format/1.0/) compatible.
-5. Wrap the Lambda, API Gateway endpoint, and utility module in a Serverless application. [More info](https://serverless.com/framework/docs/providers/aws/events/apigateway#configuring-endpoint-types)
+5. Wrap the Lambda, API Gateway endpoint, and utility module in a [Serverless](https://serverless.com/framework/docs/providers/aws/events/apigateway#configuring-endpoint-types) application.
 
 # Deployment
 

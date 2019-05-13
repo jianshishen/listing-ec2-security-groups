@@ -11,36 +11,41 @@ class utils {
    * @returns Promise
    */
   getRegions() {
-    return new Promise((resolve, reject) => {
-      ec2.describeRegions(null, function(err, data) {
-        var regions = [];
-        if (err) {
-          reject(err);
-        } else {
-          for (let i = 0; i < data.Regions.length; i++) {
-            regions.push(data.Regions[i].RegionName);
-          }
-          resolve(regions);
+    return ec2
+      .describeRegions()
+      .promise()
+      .then(data => {
+        let regions = [];
+        for (let i = 0; i < data.Regions.length; i++) {
+          regions.push(data.Regions[i].RegionName);
         }
+        return regions;
       });
-    });
   }
 
   /**
    * Retrieve security group descriptions in the given region
    * @returns Promise
    */
-  getGroups(region) {
-    const regionEC2 = new AWS.EC2({ apiVersion: "2016-11-15", region });
-    return new Promise((resolve, reject) => {
-      regionEC2.describeSecurityGroups(null, function(err, data) {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(data.SecurityGroups);
-        }
+  getGroupsByRegion(region) {
+    return new AWS.EC2({ apiVersion: "2016-11-15", region })
+      .describeSecurityGroups()
+      .promise()
+      .then(data => {
+        return { region, groups: data.SecurityGroups };
       });
-    });
+  }
+
+  /**
+   * Retrieve security group descriptions in all regions
+   * @returns Promise
+   */
+  getGroupsInAllRegions(regions) {
+    let regionsRequests = [];
+    regions.forEach(region =>
+      regionsRequests.push(this.getGroupsByRegion(region))
+    );
+    return Promise.all(regionsRequests);
   }
 }
 module.exports = new utils();
